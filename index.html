@@ -66,15 +66,15 @@
                 <div class="pricing-tiers">
                     <div class="pricing-tier">
                         <h4 data-lang-key="newborn_care">Chăm Sóc Sơ Sinh</h4>
-                        <p class="price">200k VND<span data-lang-key="per_hour">/giờ</span></p>
+                        <p class="price">120k VND<span data-lang-key="per_hour">/giờ</span></p>
                     </div>
                     <div class="pricing-tier">
                         <h4 data-lang-key="infant_care">Chăm Sóc Trẻ Nhũ Nhi</h4>
-                        <p class="price">250k VND<span data-lang-key="per_hour">/giờ</span></p>
+                        <p class="price">100k VND<span data-lang-key="per_hour">/giờ</span></p>
                     </div>
                     <div class="pricing-tier">
                         <h4 data-lang-key="toddler_care">Chăm Sóc Trẻ Nhỏ</h4>
-                        <p class="price">300k VND<span data-lang-key="per_hour">/giờ</span></p>
+                        <p class="price">80k VND<span data-lang-key="per_hour">/giờ</span></p>
                     </div>
                 </div>
                 <p class="pricing-note" data-lang-key="custom_packages">* Có các gói chăm sóc theo ngày và tuần</p>
@@ -105,7 +105,6 @@
                             <li data-lang-key="herbal_baths">Tắm bằng nước lá thuốc truyền thống với nhiệt độ thích hợp</li>
                             <li data-lang-key="cleaning_areas">Vệ sinh các vùng nhạy cảm của bé (tai, mũi, mắt) bằng kỹ thuật phù hợp</li>
                             <li data-lang-key="betel_leaves">Phơi nóng lá trầu cho liệu pháp giữ ấm truyền thống</li>
-                            <li data-lang-key="breastfeeding_support">Hỗ trợ các bà mẹ cho con bú bằng cách giúp định vị bé đúng cách</li>
                             <li data-lang-key="belly_button">Thực hiện và thay đổi thuốc dán rốn theo nhu cầu</li>
                             <li data-lang-key="swaddling">Thực hành kỹ thuật quấn chằt trẻ truyền thống</li>
                         </ul>
@@ -143,7 +142,7 @@
                             <li data-lang-key="age_toys">Giới thiệu đồ chơi và hoạt động phù hợp với độ tuổi</li>
                             <li data-lang-key="sensory_dev">Hỗ trợ phát triển giác quan thông qua trò chơi</li>
                             <li data-lang-key="reading_verbal">Đọc sách và tương tác bằng lời nói để hỗ trợ phát triển ngôn ngữ</li>
-                            <li data-lang-key="tummy_time">Khuyến khích thời gian nằm sấp và các mốc phát triển thể chất</li>
+                            <li data-lang-key="tummy_time">Khuyến khích thói quen nằm sấp và các mốc phát triển thể chất</li>
                             <li data-lang-key="lullabies">Hát ru và bài hát truyền thống Việt Nam</li>
                             <li data-lang-key="motor_skills">Thực hành các bài tập kỹ năng vận động sớm</li>
                         </ul>
@@ -189,7 +188,7 @@
                         <h4 data-lang-key="physical_care">Chăm Sóc Thể Chất</h4>
                         <ul>
                             <li data-lang-key="potty_training">Hỗ trợ và kỹ thuật huyện bé đi vệ sinh</li>
-                            <li data-lang-key="meal_times">Quản lý thời gian ăn và dinh dưỡng cho trẻ</li>
+                            <li data-lang-key="meal_times">Quản lý thói gian ăn và dinh dưỡng cho trẻ</li>
                             <li data-lang-key="tantrums">Đối phó với cơn nổi loạn và phát triển cảm xúc</li>
                             <li data-lang-key="independent_skills">Hỗ trợ kỹ năng độc lập (tự ăn, tự mặc đồ)</li>
                             <li data-lang-key="naptime">Thời gian ngủ trưa và các thói quen nghỉ ngơi</li>
@@ -232,7 +231,6 @@
                     
                     <h4 data-lang-key="required_training">Yêu Cầu Đào Tạo</h4>
                     <ul>
-                        <li data-lang-key="cpr_cert">Chứng chỉ hồi sức tim phổi cho trẻ sơ sinh và trẻ em</li>
                         <li data-lang-key="first_aid">Chứng chỉ sơ cứu</li>
                         <li data-lang-key="child_dev">Hiểu biết cơ bản về các giai đoạn phát triển của trẻ</li>
                         <li data-lang-key="vn_practices">Kiến thức về phương pháp chăm sóc trẻ truyền thống của Việt Nam</li>
@@ -316,7 +314,7 @@
                     </div>
                 </div>
                 <div class="contact-form-container">
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/xzbqnpqe" method="POST">
                         <div class="form-group">
                             <label for="name" data-lang-key="name">Họ Tên</label>
                             <input type="text" id="name" name="name" required>
@@ -343,6 +341,9 @@
                             <label for="message" data-lang-key="message">Tin Nhắn</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
+                        <input type="hidden" name="_subject" value="Gentle Hands Vietnam Contact Form">
+                        <input type="text" name="_gotcha" style="display:none">
+                        <div id="form-status" class="form-status"></div>
                         <button type="submit" class="btn btn-submit" data-lang-key="send_message">Gửi Tin Nhắn</button>
                     </form>
                 </div>

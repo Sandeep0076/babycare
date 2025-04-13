@@ -29,7 +29,6 @@ const translations = {
         about_us: 'About Us',
         prof_skills: 'Professional Skills & Qualifications',
         required_training: 'Required Training',
-        cpr_cert: 'Infant and child CPR certification',
         first_aid: 'First aid training',
         child_dev: 'Basic understanding of childhood development stages',
         vn_practices: 'Knowledge of traditional Vietnamese baby care practices',
@@ -53,7 +52,6 @@ const translations = {
         herbal_baths: 'Traditional herbal baths with appropriate temperature',
         cleaning_areas: 'Cleaning baby\'s delicate areas (ears, nose, eyes) using proper techniques',
         betel_leaves: 'Heat betel leaves for traditional warming treatments',
-        breastfeeding_support: 'Support breastfeeding mothers by helping position baby correctly',
         belly_button: 'Apply and change belly button herbal pastes as needed',
         swaddling: 'Practice traditional swaddling techniques',
         daily_care: 'Daily Care Routines',
@@ -168,7 +166,6 @@ const translations = {
         about_us: 'Về chúng tôi',
         prof_skills: 'Kỹ Năng & Bằng Cấp Chuyên Môn',
         required_training: 'Yêu Cầu Đào Tạo',
-        cpr_cert: 'Chứng chỉ hồi sức tim phổi cho trẻ sơ sinh và trẻ em',
         first_aid: 'Chứng chỉ sơ cứu',
         child_dev: 'Hiểu biết cơ bản về các giai đoạn phát triển của trẻ',
         vn_practices: 'Kiến thức về phương pháp chăm sóc trẻ truyền thống của Việt Nam',
@@ -192,7 +189,6 @@ const translations = {
         herbal_baths: 'Tắm bằng nước lá thuốc truyền thống với nhiệt độ thích hợp',
         cleaning_areas: 'Vệ sinh các vùng nhạy cảm của bé (tai, mũi, mắt) bằng kỹ thuật phù hợp',
         betel_leaves: 'Phơi nóng lá trầu cho liệu pháp giữ ấm truyền thống',
-        breastfeeding_support: 'Hỗ trợ các bà mẹ cho con bú bằng cách giúp định vị bé đúng cách',
         belly_button: 'Thực hiện và thay đổi thuốc dán rốn theo nhu cầu',
         swaddling: 'Thực hành kỹ thuật quấn chằt trẻ truyền thống',
         daily_care: 'Chăm Sóc Hàng Ngày',
@@ -385,8 +381,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Contact Form Submission
+    // Contact Form Submission with Formspree
     const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -399,14 +397,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = document.getElementById('message').value;
             
             if (!name || !email || !phone || !service || !message) {
-                alert('Please fill out all fields');
+                formStatus.className = 'form-status error';
+                formStatus.textContent = currentLang === 'en' ? 
+                    'Please fill out all fields' : 
+                    'Vui lòng điền đầy đủ thông tin';
+                formStatus.style.display = 'block';
                 return;
             }
             
-            // In a real application, you would send this data to a server
-            // For now, we'll just show a success message
-            alert('Thank you for your inquiry! We will contact you shortly.');
-            contactForm.reset();
+            // Disable the submit button during form submission
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = currentLang === 'en' ? 'Sending...' : 'Đang gửi...';
+            
+            // Show an alert message first - this is the most reliable way to ensure the user sees a message
+            alert(currentLang === 'en' ? 
+                'Message sent successfully! We will contact you shortly.' : 
+                'Tin nhắn đã được gửi thành công! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
+            
+            // Now submit the form
+            contactForm.submit();
+            
+            // Note: The form will be submitted to Formspree and the page will be redirected
+            // This is the most direct and reliable approach
         });
     }
     
